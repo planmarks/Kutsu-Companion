@@ -1,0 +1,46 @@
+// TEMPLATE — this is NOT the real file. The real lib/firebase_options.dart is
+// git-ignored so project keys stay out of the public repo.
+//
+// To build the app, generate your own from your Firebase project:
+//
+//   dart pub global activate flutterfire_cli
+//   flutterfire configure --project=<your-firebase-project-id>
+//
+// That writes lib/firebase_options.dart (and android/app/google-services.json)
+// with your values, replacing the placeholders below. See README → "Firebase setup".
+//
+// The app only uses Firebase for the optional community map (anonymous Auth +
+// Cloud Firestore). If you don't need it, you can stub these out, but the
+// community "Global" tab / contribute action will be disabled.
+import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
+import 'package:flutter/foundation.dart'
+    show defaultTargetPlatform, kIsWeb, TargetPlatform;
+
+class DefaultFirebaseOptions {
+  static FirebaseOptions get currentPlatform {
+    if (kIsWeb) return web;
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.android:
+        return android;
+      default:
+        throw UnsupportedError('Configure Firebase with `flutterfire configure`.');
+    }
+  }
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'YOUR_WEB_API_KEY',
+    appId: 'YOUR_WEB_APP_ID',
+    messagingSenderId: 'YOUR_SENDER_ID',
+    projectId: 'your-project-id',
+    authDomain: 'your-project-id.firebaseapp.com',
+    storageBucket: 'your-project-id.firebasestorage.app',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'YOUR_ANDROID_API_KEY',
+    appId: 'YOUR_ANDROID_APP_ID',
+    messagingSenderId: 'YOUR_SENDER_ID',
+    projectId: 'your-project-id',
+    storageBucket: 'your-project-id.firebasestorage.app',
+  );
+}

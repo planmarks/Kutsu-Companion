@@ -1,0 +1,50 @@
+# ===========================================================================
+# Kutsu Companion (Flutter) — .gitignore
+# Android IS tracked (it carries the project's manifest/Gradle/Firebase config);
+# only its build output and local machine config are ignored.
+# ===========================================================================
+
+# Dart / Flutter tooling
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+.metadata.bak
+*.log
+
+# IDE / OS
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Android: build output + machine-local config only (the rest of android/ is tracked)
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/key.properties
+android/app/debug.keystore
+**/*.keystore
+**/*.jks
+
+# ---------------------------------------------------------------------------
+# Firebase — project keys are kept OUT of this public repo. Clone, then run
+#   flutterfire configure        (see README → "Firebase setup")
+# to generate your own lib/firebase_options.dart + android/app/google-services.json.
+# ---------------------------------------------------------------------------
+lib/firebase_options.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Untested platform scaffolds — this is an Android-only app. Delete a line and
+# run `flutter create .` if you want to track/target that platform.
+/ios/
+/linux/
+/macos/
+/windows/
+/web/
